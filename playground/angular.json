@@ -1,7 +1,9 @@
 {
-  "version": 2,
-  "projects": {
-    "my-app": "apps/my-app",
-    "my-app-e2e": "apps/my-app-e2e"
-  }
+    "version": 2,
+    "projects": {
+        "api": "apps/api",
+        "data": "libs/data",
+        "my-app": "apps/my-app",
+        "my-app-e2e": "apps/my-app-e2e"
+    }
 }
