@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'jan-root',
+  selector: 'playground-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less'],
 })

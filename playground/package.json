@@ -1,6 +1,6 @@
 {
-  "name": "jan",
-  "version": "0.0.0",
+  "name": "playground",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "nx",

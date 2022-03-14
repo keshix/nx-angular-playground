@@ -2,7 +2,7 @@
   "projectType": "application",
   "root": "apps/my-app",
   "sourceRoot": "apps/my-app/src",
-  "prefix": "jan",
+  "prefix": "playground",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
