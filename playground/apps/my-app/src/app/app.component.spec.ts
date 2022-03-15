@@ -2,17 +2,33 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TodoService } from "./todo.service";
+import { Subject } from "rxjs";
+import { MockInstance, MockProvider } from "ng-mocks";
 
 describe('AppComponent', () => {
     let fixture: ComponentFixture<AppComponent>;
     let component: AppComponent;
 
+    MockInstance.scope();
+    const fakeAddTodo = new Subject();
+    const fakeList = new Subject();
+    let addTodo: jest.Mock;
+    let fetch: jest.Mock;
+
     beforeEach(async () => {
+
         await TestBed.configureTestingModule({
             declarations: [AppComponent],
-            providers: [TodoService],
+            providers: [MockProvider(TodoService)],
             imports: [HttpClientTestingModule],
         }).compileComponents();
+
+        addTodo = jest.fn().mockReturnValueOnce(fakeAddTodo);
+        fetch = jest.fn().mockReturnValueOnce(fakeList);
+        MockInstance(TodoService, () => ({
+            addTodo,
+            fetch
+        }));
 
         fixture = TestBed.createComponent(AppComponent);
         component = fixture.componentInstance;
@@ -34,10 +50,16 @@ describe('AppComponent', () => {
     });
 
     it(`should fetch todos`, () => {
+
         const addTodoSpy = jest.spyOn(component, 'addTodo');
         let button = fixture.debugElement.nativeElement.querySelector('#add-todo');
         button.click();
         fixture.detectChanges();
+
+        fakeAddTodo.next([]);
+        expect(addTodo).toHaveBeenCalledTimes(1);
+
         expect(addTodoSpy).toHaveBeenCalled();
+
     });
 });
