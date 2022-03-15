@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Todo } from '@playground/data';
+import { TodoService } from './todo.service';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'playground-root',
@@ -9,14 +11,16 @@ import { Todo } from '@playground/data';
 })
 export class AppComponent {
     title = 'my-app';
-    todos: Todo[] = [{ title: 'Todo 1' }, { title: 'Todo 2' }];
+    todos?: Observable<Todo[]>;
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private todoService: TodoService) {}
+
+    ngOnInit() {
         this.fetch();
     }
 
     fetch() {
-        this.http.get<Todo[]>('/api/todos').subscribe((t) => (this.todos = t));
+        this.todos = this.todoService.fetch();
     }
 
     addTodo() {
