@@ -11,4 +11,9 @@ export class TodoService {
     fetch() {
         return this.http.get<Todo[]>('/api/todos');
     }
+
+    addTodo() {
+        return this.http.post('/api/addTodo', {});
+    }
+
 }

@@ -16,16 +16,16 @@ export class AppComponent {
     constructor(private http: HttpClient, private todoService: TodoService) {}
 
     ngOnInit() {
-        this.fetch();
+        this.fetchTodos();
     }
 
-    fetch() {
+    fetchTodos() {
         this.todos = this.todoService.fetch();
     }
 
     addTodo() {
-        this.http.post('/api/addTodo', {}).subscribe(() => {
-            this.fetch();
-        });
+        this.todoService.addTodo().subscribe(() => {
+            this.fetchTodos();
+        })
     }
 }
