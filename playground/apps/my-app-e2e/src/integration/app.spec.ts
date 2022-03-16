@@ -1,4 +1,5 @@
-import { getGreeting, getTodos, getAddTodoButton } from '../support/app.po';
+/// <reference types="cypress"/>
+import { getAddTodoButton, getGreeting, getTodos } from '../support/app.po';
 
 describe('my-app', () => {
     beforeEach(() => {
@@ -6,16 +7,22 @@ describe('my-app', () => {
     });
 
     it('should display welcome message', () => {
-        // Custom command example, see `../support/commands.ts` file
         cy.login('my-email@something.com', 'myPassword');
 
-        // Function helper example, see `../support/app.po.ts` file
         getGreeting().contains('Welcome my-app');
     });
 
     it('should display todos', () => {
-        getTodos().should((t) => expect(t.length).equal(2));
-        getAddTodoButton().click();
-        getTodos().should((t) => expect(t.length).equal(3));
+
+        getTodos().then((elem) => {
+            let initialLength = elem.length;
+            getAddTodoButton()
+                .should("be.visible")
+                .click()
+                .then(() => {
+                    getTodos().should((t) => expect(t.length).equal(initialLength + 1));
+                });
+        });
+
     });
 });
