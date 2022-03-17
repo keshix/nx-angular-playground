@@ -1,0 +1,32 @@
+<div class="row mb-5">
+    <h2>Add new question</h2>
+    <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input class="form-control" id="title" type="text" formControlName="title" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" rows="5" id="message" type="text" formControlName="message" required></textarea>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-primary text-white" type="submit" [disabled]="questionForm.invalid">Submit</button>
+            </div>
+        </div>
+
+        <div *ngIf="title?.invalid && title?.dirty" class="alert alert-danger mt-4">
+            <div *ngIf="title?.errors?.['required']">Title is required.</div>
+        </div>
+        <div *ngIf="message?.invalid && message?.dirty" class="alert alert-danger mt-4">
+            <div *ngIf="message?.errors?.['required']">Message is required.</div>
+        </div>
+        <div *ngIf="showSuccessMessage" class="alert alert-success mt-4" role="alert" >
+            Your Question has been successfully submitted!
+        </div>
+    </form>
+
+</div>

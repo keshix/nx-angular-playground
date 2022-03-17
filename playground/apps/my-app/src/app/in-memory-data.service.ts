@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { getStatusText, InMemoryDbService, ResponseOptions, STATUS } from 'angular-in-memory-web-api';
 import { User, Question, Answer } from './interfaces/models';
 
 @Injectable({
     providedIn: 'root',
 })
-export class InMemoryDataService implements InMemoryDbService {
+export class InMemoryDataService extends InMemoryDbService {
     // In-Memory DB will intercept /api/whatever calls and return data
     createDb() {
         let users: User[];
@@ -21,16 +21,13 @@ export class InMemoryDataService implements InMemoryDbService {
                 userId: 1,
                 creationDate: new Date('2022-03-11'),
                 title: 'first question',
-                message: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                     sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                      magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-                      et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                       no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                        sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                        magna aliquyam erat, sed diam voluptua. At vero eos et
-                        accusam et justo duo dolores et ea rebum. Stet clita kasd
-                         gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.,`,
+                message: `Leverage agile frameworks to provide a robust synopsis
+                        for high level overviews. Iterative approaches to
+                        corporate strategy foster collaborative thinking to
+                        further the overall value proposition. Organically
+                        grow the holistic world view of disruptive innovation
+                        via workplace diversity and empowerment.
+                        Whazzuuup?`,
             },
             {
                 id: 11,
@@ -38,25 +35,19 @@ export class InMemoryDataService implements InMemoryDbService {
                 creationDate: new Date('2022-02-18'),
                 title: 'second question',
                 message: `
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                    aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
-                    duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-                    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                    ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
-                    eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                     no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor
-                      sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                      invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                    Bring to the table win-win survival strategies to ensure
+                    proactive domination. At the end of the day, going
+                    forward, a new normal that has evolved from generation X is
+                    on the runway heading towards a streamlined cloud solution.
+                    User generated content in real-time will have multiple touchpoints for offshoring.
 
 
-                    Duis autem vel eum iriure dolor in hendrerit in vulputate velit
-                     esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at
-                     vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum
-                     zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor
-                     sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                     tincidunt ut laoreet dolore magna aliquam erat volutpat. `,
+                   Capitalize on low hanging fruit to identify a ballpark value
+                    added activity to beta test. Override the digital divide with
+                    additional clickthroughs from DevOps. Nanotechnology immersion
+                    along the information highway will close the loop on focusing
+                    solely on the bottom line.
+                    `,
             },
         ];
 
