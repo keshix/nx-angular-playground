@@ -19,7 +19,7 @@ export class QuestionService {
     }
 
     get(id: number) {
-        return this.http.get<Question>(`api/question/${id}`);
+        return this.http.get<Question>(this.questionsUrl + `/${id}`);
     }
 
     create(question: Question) {

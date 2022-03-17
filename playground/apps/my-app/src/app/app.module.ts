@@ -8,9 +8,10 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { QuestionListComponent } from './question-list/question-list.component';
 import { QuestionAddComponent } from './question-add/question-add.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { QuestionDetailsComponent } from './question-details/question-details.component';
 
 @NgModule({
-    declarations: [AppComponent, QuestionListComponent, QuestionAddComponent],
+    declarations: [AppComponent, QuestionListComponent, QuestionAddComponent, QuestionDetailsComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
