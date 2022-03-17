@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { QuestionListComponent } from './question-list.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { QuestionAddComponent } from '../question-add/question-add.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('QuestionListComponent', () => {
     let component: QuestionListComponent;
@@ -9,8 +11,8 @@ describe('QuestionListComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [HttpClientTestingModule],
-            declarations: [QuestionListComponent],
+            imports: [HttpClientTestingModule, ReactiveFormsModule],
+            declarations: [QuestionListComponent, QuestionAddComponent],
         }).compileComponents();
     });
 

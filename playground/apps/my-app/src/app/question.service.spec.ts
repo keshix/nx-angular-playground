@@ -43,7 +43,7 @@ describe('QuestionService', () => {
             expect(data).toMatchObject(mockResult);
         });
 
-        const req = httpMock.expectOne(`api/question/0`);
+        const req = httpMock.expectOne(`api/questions/0`);
         expect(req.request.method).toBe('GET');
         req.flush(mockResult);
     });
