@@ -1,0 +1,21 @@
+<div>
+    <div class="row">
+        <h3 class="mb-4">Recent Questions</h3>
+    </div>
+    <div class="row">
+        <ul class="question-list list-unstyled">
+            <li *ngFor="let question of questions$ | async" class="mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-truncate">{{question.title}}</h5>
+                        <p class="card-text text-truncate">{{question.message}}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">From: {{question.creationDate | date}}</li>
+                    </ul>
+                    <a routerLink="/detail/{{question.id}}" class="stretched-link"></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

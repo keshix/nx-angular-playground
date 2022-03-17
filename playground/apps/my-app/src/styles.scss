@@ -1,1 +1,8 @@
+$primary: #00A4FD;
+$secondary: #FFDC02;
+
+.card:hover {
+    color: $primary !important;
+}
+
 @import "bootstrap/scss/bootstrap";

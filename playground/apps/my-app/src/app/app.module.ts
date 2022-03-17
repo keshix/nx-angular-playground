@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { QuestionListComponent } from './question-list/question-list.component';
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, QuestionListComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
