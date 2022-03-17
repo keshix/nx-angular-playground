@@ -8,14 +8,10 @@ export class AnswerService {
     constructor(private http: HttpClient) {}
 
     getAll() {
-        return this.http.get('api/answers').subscribe((customers) => {
-            console.log(customers);
-        });
+        return this.http.get('api/answers');
     }
 
     get(id: number) {
-        return this.http.get(`api/answer/${id}`).subscribe((customer) => {
-            console.log(customer);
-        });
+        return this.http.get(`api/answer/${id}`);
     }
 }

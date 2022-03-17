@@ -8,14 +8,10 @@ export class UserService {
     constructor(private http: HttpClient) {}
 
     getAll() {
-        return this.http.get('api/users').subscribe((customers) => {
-            console.log(customers);
-        });
+        return this.http.get('api/users');
     }
 
     get(id: number) {
-        return this.http.get(`api/users/${id}`).subscribe((customer) => {
-            console.log(customer);
-        });
+        return this.http.get(`api/users/${id}`);
     }
 }

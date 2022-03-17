@@ -8,14 +8,10 @@ export class QuestionService {
     constructor(private http: HttpClient) {}
 
     getAll() {
-        return this.http.get('api/questions').subscribe((customers) => {
-            console.log(customers);
-        });
+        return this.http.get('api/questions');
     }
 
     get(id: number) {
-        return this.http.get(`api/question/${id}`).subscribe((customer) => {
-            console.log(customer);
-        });
+        return this.http.get(`api/question/${id}`);
     }
 }
