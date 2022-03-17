@@ -8,7 +8,7 @@
     <div class="row">
         <ul class="question-list list-unstyled">
             <li *ngFor="let question of questions$ | async" class="mb-3">
-                <a routerLink="/questions/{{question.id}}" class="text-decoration-none">
+                <a routerLink="/questions/{{question.id}}" class="text-decoration-none" data-cy="question-details-link">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title text-truncate">{{question.title}}</h5>

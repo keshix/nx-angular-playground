@@ -1,10 +1,10 @@
 <div class="row mb-5">
     <h2>Add new question</h2>
-    <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="questionForm" (ngSubmit)="onSubmit()" data-cy="question-form">
 
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
-            <input class="form-control" id="title" type="text" formControlName="title" required />
+            <input class="form-control" id="title" type="text" formControlName="title" required data-cy="question-title-input" />
         </div>
 
         <div class="mb-3">
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div *ngIf="title?.invalid && title?.dirty" class="alert alert-danger mt-4">
+        <div *ngIf="title?.invalid && title?.dirty" class="alert alert-danger mt-4" data-cy="question-title-input-error-message">
             <div *ngIf="title?.errors?.['required']">Title is required.</div>
         </div>
         <div *ngIf="message?.invalid && message?.dirty" class="alert alert-danger mt-4">
