@@ -27,6 +27,6 @@ describe('AppComponent', () => {
         const fixture = TestBed.createComponent(AppComponent);
         fixture.detectChanges();
         const compiled = fixture.nativeElement as HTMLElement;
-        expect(compiled.querySelector('h1')?.textContent).toContain('Welcome to Staffbase Questions & Answers');
+        expect(compiled.querySelector('h1')?.textContent).toContain('Welcome to my Questions & Answers Tool');
     });
 });

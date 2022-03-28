@@ -12,7 +12,7 @@ describe('my-app', () => {
     beforeEach(() => cy.visit('/'));
 
     it('should display welcome message', () => {
-        getGreeting().contains('Welcome to Staffbase');
+        getGreeting().contains('Welcome to my Questions & Answers Tool');
     });
 
     it('should present a form to create questions', () => {
